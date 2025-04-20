@@ -8,7 +8,7 @@ export default function Home() {
         Вітаю Мяне клічуць Міця. І я люблю даследваць розум. Асабліва па-за
         словамі. Тут будуць кнопачкі, каб дазнацца нешта пра мяне.
         <Link href="/meditation">Пра медытацыю</Link>
-        <Link href="/QuoVadis">Курс "Да сябе"</Link>
+        <Link href="/QuoVadis">Курс &quot;Да сябе&quot;</Link>
         <Link href="/vk">Кантакты</Link>
       </div>
     </>
