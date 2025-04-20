@@ -1,10 +1,16 @@
+import Link from "next/link";
 import styles from "./page.module.css";
-import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className={styles.page}>
-      <Image width={600} height={600} src="/face.jpg" alt="My face" />
-    </div>
+    <>
+      <div className={styles.page}>
+        Вітаю Мяне клічуць Міця. І я люблю даследваць розум. Асабліва па-за
+        словамі. Тут будуць кнопачкі, каб дазнацца нешта пра мяне.
+        <Link href="/meditation">Пра медытацыю</Link>
+        <Link href="/QuoVadis">Курс "Да сябе"</Link>
+        <Link href="/vk">Кантакты</Link>
+      </div>
+    </>
   );
 }

@@ -1,7 +1,18 @@
-
 :root {
   --background: #ffffff;
   --foreground: #171717;
+}
+
+.ava {
+  color: transparent;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 10vw;
+  object-fit: cover;
+  height: 10vw;
+  cursor: pointer;
+  border-radius: 50%;
 }
 
 @media (prefers-color-scheme: dark) {
