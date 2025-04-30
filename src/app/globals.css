@@ -15,11 +15,6 @@
   border-radius: 50%;
 }
 
-.hyperlink {
-  color: gold;
-  display: contents;
-}
-
 @media (prefers-color-scheme: dark) {
   :root {
     --background: radial-gradient(
