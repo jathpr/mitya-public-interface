@@ -5,11 +5,11 @@
   align-items: center;
 }
 
+.text {
+  width: 50vw;
+}
+
 .qr {
   width: 20vh;
   height: 20vh;
-}
-
-.text {
-  width: 50vw;
 }

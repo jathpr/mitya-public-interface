@@ -1,4 +1,3 @@
-import Link from "next/link";
 import styles from "./page.module.css";
 
 export default function meditation() {
@@ -27,8 +26,6 @@ export default function meditation() {
         <br /> <br />
         Проста быць
       </p>
-
-      <Link href="/QuoVadis">Курс &quot;Да сябе&quot;</Link>
     </div>
   );
 }
