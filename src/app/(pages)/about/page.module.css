@@ -1,0 +1,24 @@
+.page {
+  display: grid;
+  height: 100vh;
+  justify-items: center;
+  align-items: center;
+  grid-template-columns: 0.8fr 1fr;
+}
+
+.photo {
+  height: 70vh;
+  transform: scaleX(-1);
+  width: 70vh;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.text {
+  width: 50vw;
+}
+
+.qr {
+  width: 20vh;
+  height: 20vh;
+}

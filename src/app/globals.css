@@ -3,27 +3,11 @@
   --foreground: #171717;
 }
 
-.ava {
-  color: transparent;
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  width: 20vh;
-  object-fit: cover;
-  height: 20vh;
-  cursor: pointer;
-  border-radius: 50%;
-}
-
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: radial-gradient(
-      circle,
-      rgba(32, 96, 61, 1) 0%,
-      rgba(45, 87, 44, 1) 50%,
-      rgba(17, 97, 48, 1) 100%
-    );
-    --foreground: #d3c9c3;
+    --background: #6e7867;
+    /* --background: #4d5a52; */
+    --foreground: #120404;
   }
 }
 
@@ -36,6 +20,7 @@ body {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  /* text-shadow: 1px 1px 20px #ffffff; */
   font-size: x-large;
 }
 

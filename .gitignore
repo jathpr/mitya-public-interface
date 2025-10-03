@@ -9,7 +9,8 @@
 !.yarn/plugins
 !.yarn/releases
 !.yarn/versions
-
+public/unused
+public/dark.mp4
 # testing
 /coverage
 

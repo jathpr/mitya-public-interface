@@ -1,4 +1,6 @@
 .hyperlink {
-  color: gold;
+  color: #d2d49b;
   display: contents;
+  font-style: italic;
+  text-shadow: 1px 1px 20px #000000;
 }

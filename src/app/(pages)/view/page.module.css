@@ -1,0 +1,10 @@
+.page {
+  display: grid;
+  height: 100vh;
+  justify-items: center;
+  align-items: center;
+}
+
+.text {
+  width: 50vw;
+}

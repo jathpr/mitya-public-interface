@@ -1,0 +1,23 @@
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.link {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 20vh;
+  object-fit: cover;
+  height: 20vh;
+}
+
+.ava {
+  position: absolute;
+  color: transparent;
+  cursor: pointer;
+  width: 20vh;
+  height: 20vh;
+}
