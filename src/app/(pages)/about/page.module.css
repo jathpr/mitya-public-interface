@@ -3,13 +3,13 @@
   height: 100vh;
   justify-items: center;
   align-items: center;
-  grid-template-columns: 0.8fr 1fr;
+  grid-template-columns: 0.7fr 1fr;
 }
 
 .photo {
-  height: 70vh;
+  height: 60vh;
   transform: scaleX(-1);
-  width: 70vh;
+  width: 60vh;
   object-fit: cover;
   border-radius: 50%;
 }

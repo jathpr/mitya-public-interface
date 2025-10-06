@@ -5,6 +5,10 @@
   align-items: center;
 }
 
+.quote {
+  margin-left: 50vw;
+}
+
 .text {
   width: 50vw;
 }
