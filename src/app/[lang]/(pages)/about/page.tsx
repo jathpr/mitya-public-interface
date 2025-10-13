@@ -1,6 +1,6 @@
 import { HyperLink } from "@/components/HyperLink";
 import styles from "./page.module.css";
-import mitya from "../../../../public/me.jpg";
+import mitya from "../../../../../public/me.jpg";
 import Image from "next/image";
 import Link from "next/link";
 

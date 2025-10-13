@@ -1,11 +1,17 @@
 import Link from "next/link";
 import styles from "./page.module.css";
-import tgQr from "../../public/qr.png";
-import enso from "../../public/zen.png";
+import tgQr from "../../../public/qr.png";
+import enso from "../../../public/zen.png";
 import Image from "next/image";
 import { HyperLink } from "@/components/HyperLink";
 
-export default function Home() {
+type Params = {
+  params: Promise<{ lang: string }>;
+};
+
+export default async function Home({ params }: Params) {
+  const { lang } = await params;
+  console.log("🚀 ~ lang:", lang);
   return (
     <div className={styles.page}>
       <Image src={enso} alt="qr code of Telegram" className={styles.enso} />
