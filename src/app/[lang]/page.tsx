@@ -11,14 +11,27 @@ type Params = {
 
 export default async function Home({ params }: Params) {
   const { lang } = await params;
-  console.log("🚀 ~ lang:", lang);
+
   return (
     <div className={styles.page}>
-      <Image src={enso} alt="qr code of Telegram" className={styles.enso} />
-      Вітаю. <HyperLink url="/about" label="Мяне" /> клічуць Міця
-      <br /> Я прапаную свае паслугі ў сферах{" "}
-      <HyperLink url="/meditation" label="медытацыі" /> і{" "}
-      <HyperLink url="/programming" label="праграмавання" />
+      {lang === "en" ? (
+        <>
+          <Image src={enso} alt="qr code of Telegram" className={styles.enso} />
+          Hello. <HyperLink url="/about" label="My" /> name is Mitya
+          <br /> I promote you assist in{" "}
+          <HyperLink url="/meditation" label="meditation" /> and{" "}
+          <HyperLink url="/programming" label="programming" />
+        </>
+      ) : (
+        <>
+          <Image src={enso} alt="qr code of Telegram" className={styles.enso} />
+          Вітаю. <HyperLink url="/about" label="Мяне" /> клічуць Міця
+          <br /> Я прапаную свае паслугі ў сферах{" "}
+          <HyperLink url="/meditation" label="медытацыі" /> і{" "}
+          <HyperLink url="/programming" label="праграмавання" />
+        </>
+      )}
+
       <Link
         rel="noopener noreferrer"
         target="_blank"

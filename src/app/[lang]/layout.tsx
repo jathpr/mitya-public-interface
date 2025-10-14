@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist } from "next/font/google";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
+import LocaleSwitcher from "@/components/localeSwitcher";
 
 const geistSans = Geist({
   subsets: ["latin"],
@@ -20,6 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.className}`}>
+        <LocaleSwitcher />
         {children}
         <SpeedInsights />
       </body>

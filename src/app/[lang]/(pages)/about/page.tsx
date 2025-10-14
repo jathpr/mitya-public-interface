@@ -3,8 +3,13 @@ import styles from "./page.module.css";
 import mitya from "../../../../../public/me.jpg";
 import Image from "next/image";
 import Link from "next/link";
+import { headers } from "next/headers";
 
-export default function about() {
+export default async function about() {
+  const headersList = await headers();
+  console.log("🚀 ~ Home ~ headersList:", headersList);
+  const fullUrl = headersList.get("referer") || "";
+  console.log("🚀 ~ Home ~ fullUrl:", fullUrl);
   return (
     <div className={styles.page}>
       <Link href="/buddhism/intro">
