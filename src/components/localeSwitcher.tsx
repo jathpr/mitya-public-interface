@@ -2,7 +2,7 @@
 
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import { LOCALES } from "@/middleware";
+import { routing } from "@/i18n/routing";
 
 export default function LocaleSwitcher() {
   const pathname = usePathname();
@@ -17,7 +17,7 @@ export default function LocaleSwitcher() {
     <div>
       <p>Locale switcher:</p>
       <ul>
-        {LOCALES.map((locale) => {
+        {routing.locales.map((locale) => {
           return (
             <li key={locale}>
               <Link href={redirectedPathname(locale)}>{locale}</Link>

@@ -3,6 +3,8 @@ import { Geist } from "next/font/google";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 import LocaleSwitcher from "@/components/localeSwitcher";
+import { NextIntlClientProvider } from "next-intl";
+import { routing } from "@/i18n/routing";
 
 const geistSans = Geist({
   subsets: ["latin"],
@@ -13,6 +15,10 @@ export const metadata: Metadata = {
   description: "See you soon",
 };
 
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
+}
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -21,9 +27,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.className}`}>
-        <LocaleSwitcher />
-        {children}
-        <SpeedInsights />
+        <NextIntlClientProvider>
+          <LocaleSwitcher />
+          {children}
+          <SpeedInsights />
+        </NextIntlClientProvider>
       </body>
     </html>
   );
