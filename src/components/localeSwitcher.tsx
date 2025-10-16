@@ -3,6 +3,7 @@
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { routing } from "@/i18n/routing";
+import styles from "./LocaleSwitcher.module.css";
 
 export default function LocaleSwitcher() {
   const pathname = usePathname();
@@ -14,17 +15,25 @@ export default function LocaleSwitcher() {
   };
 
   return (
-    <div>
-      <p>Locale switcher:</p>
-      <ul>
-        {routing.locales.map((locale) => {
-          return (
-            <li key={locale}>
-              <Link href={redirectedPathname(locale)}>{locale}</Link>
-            </li>
-          );
-        })}
-      </ul>
+    <div className={styles.container}>
+      <Link
+        href={redirectedPathname(routing.locales[0])}
+        className={styles.link}
+      >
+        мова
+      </Link>
+      <Link
+        href={redirectedPathname(routing.locales[1])}
+        className={styles.link}
+      >
+        language
+      </Link>
+      <Link
+        href={redirectedPathname(routing.locales[2])}
+        className={styles.link}
+      >
+        язык
+      </Link>
     </div>
   );
 }

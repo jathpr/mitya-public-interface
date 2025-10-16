@@ -1,5 +1,7 @@
 {
-  "HomePage": {
-    "title": "Вітаю свет!"
+  "main": {
+    "text": "Вітаю. <about>Мяне</about> клічуць Міця.<br></br>Я прапаную свае паслугі ў сферах <meditation>медытацыі</meditation> і <programming>праграмавання</programming>",
+    "imgEnso": "Энсо",
+    "imgTg": "qr-код Telegram"
   }
 }

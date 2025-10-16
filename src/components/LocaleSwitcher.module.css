@@ -1,0 +1,15 @@
+.container {
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 30%;
+  text-align: center;
+}
+
+.link {
+  color: #d2d49b;
+  display: inline;
+  font-style: italic;
+  text-shadow: 1px 1px 20px #000000;
+  margin: 10px;
+}
