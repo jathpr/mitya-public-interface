@@ -3,5 +3,10 @@
     "text": "Вітаю. <about>Мяне</about> клічуць Міця.<br></br>Я прапаную свае паслугі ў сферах <meditation>медытацыі</meditation> і <programming>праграмавання</programming>",
     "imgEnso": "Энсо",
     "imgTg": "qr-код Telegram"
+  },
+  "about": {
+    "text": "Люблю даследваць розум па-за словамі. Гэтыя даследвання прывялі мяне да <meditation>медытацыі</meditation>. А медытацыя - да <buddhism>Буддызму</buddhism>."
+  },
+  "meditation": {
   }
 }

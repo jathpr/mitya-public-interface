@@ -3,5 +3,10 @@
     "text": "Hello. <about>My</about> name is Mytia.<br></br>I offer you assist in familiarization with <meditation>meditation</meditation> and <programming>programming</programming>",
     "imgEnso": "enso",
     "imgTg": "qr code of Telegram"
+  },
+  "about": {
+    "text": "I like to explore the mind beyond words. \nThese investigations led me to <meditation>meditation</meditation>. \nAnd meditation - to <buddhism>Buddhism</buddhism>."
+  },
+  "meditation": {
   }
 }
