@@ -1,14 +1,6 @@
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #6e7867;
-    /* --background: #4d5a52; */
-    --foreground: #120404;
-  }
+  --background: #6e7867;
+  --foreground: #120404;
 }
 
 body {
@@ -20,7 +12,6 @@ body {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  /* text-shadow: 1px 1px 20px #ffffff; */
   font-size: x-large;
 }
 
