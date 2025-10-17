@@ -10,7 +10,7 @@ export default async function about() {
   return (
     <div className={styles.page}>
       <Link href="/buddhism/intro">
-        <Image src={mitya} alt="mitya photo" className={styles.photo} />
+        <Image src={mitya} alt={t("imgPhoto")} className={styles.photo} />
       </Link>
       <p className={styles.text}>
         {t.rich("text", {
