@@ -18,8 +18,8 @@ const geistSans = Geist({
 });
 
 export const metadata: Metadata = {
-  title: "Do it",
-  description: "See you soon",
+  title: "Be",
+  description: "Дзелай - будзе",
 };
 
 export default async function RootLayout({
