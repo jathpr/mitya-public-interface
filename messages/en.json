@@ -8,5 +8,9 @@
     "text": "I like to explore the mind beyond words. \nThese investigations led me to <meditation>meditation</meditation>. \nAnd meditation - to <buddhism>Buddhism</buddhism>.",
     "imgPhoto": "Mitya's photo"
   },
-  "meditation": {}
+  "meditation": {},
+  "meta": {
+    "description": "Gate Gate",
+    "title": "Be"
+  }
 }

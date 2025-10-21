@@ -7,7 +7,7 @@ import LocaleSwitcher from "@/components/LocaleSwitcher";
 
 import { routing } from "@/i18n/routing";
 import { notFound } from "next/navigation";
-import { setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -17,19 +17,21 @@ const geistSans = Geist({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: "Be",
-  description: "Дзелай - будзе",
-};
-
-export default async function RootLayout({
-  children,
-  params,
-}: // params,
-Readonly<{
+type Props = Readonly<{
   children: React.ReactNode;
   params: Promise<{ locale: string }>;
-}>) {
+}>;
+
+export async function generateMetadata(): Promise<Metadata> {
+  // const { locale } = await params;
+  const t = await getTranslations("meta");
+  return {
+    title: t("title"),
+    description: t("description"),
+  };
+}
+
+export default async function RootLayout({ children, params }: Props) {
   const { locale } = await params;
   if (!hasLocale(routing.locales, locale)) {
     notFound();

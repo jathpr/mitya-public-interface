@@ -8,5 +8,9 @@
     "text": "Мне нравится исследовать разум за пределами слов. Эти исследования привели меня к <meditation>медитации</meditation>. А медитация - к <buddhism>буддизму</buddhism>.",
     "imgPhoto": "Фотография Мити"
   },
-  "meditation": {}
+  "meditation": {},
+  "meta": {
+    "title": "Быць",
+    "description": "Делай - будет"
+  }
 }

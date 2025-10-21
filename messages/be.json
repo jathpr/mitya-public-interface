@@ -8,5 +8,9 @@
     "text": "Люблю даследваць розум па-за словамі. Гэтыя даследвання прывялі мяне да <meditation>медытацыі</meditation>. А медытацыя - да <buddhism>Буддызму</buddhism>.",
     "imgPhoto": "фатаздымак Міці"
   },
-  "meditation": {}
+  "meditation": {},
+  "meta": {
+    "description": "Дзелай - будзе",
+    "title": "Быць"
+  }
 }
