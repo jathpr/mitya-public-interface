@@ -1,15 +1,14 @@
+import { useTranslations } from "next-intl";
 import styles from "./page.module.css";
 
-export default function programming() {
+export default function Programming() {
+  const t = useTranslations("programming");
   return (
     <div className={styles.page}>
       <p className={styles.text}>
-        1. Навучанне з нуля JavaScrip, React, TypeScript.
-        <br /> Мой улюблены фармат - ментарства. Вы займацеся, я накіроўваю.
-        <br /> <br />
-        2. Level Up для Junior & Middle спецыялістаў. Магу дапамгчы зразумець
-        &quot;што тут адбваецца&quot;, як з тэхнічнага аспекту, так і з
-        псіхалагічнага.
+        {t.rich("overview", {
+          br: () => <br />,
+        })}
       </p>
     </div>
   );
