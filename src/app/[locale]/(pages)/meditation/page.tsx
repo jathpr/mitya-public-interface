@@ -12,7 +12,7 @@ export default function Meditation() {
         })}
       </p>
 
-      <Link href="/QuoVadis">Курс &quot;Да сябе&quot;</Link>
+      <Link href="/QuoVadis">{t("course")}</Link>
     </div>
   );
 }
