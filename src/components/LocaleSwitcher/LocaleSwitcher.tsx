@@ -5,7 +5,7 @@ import { routing } from "@/i18n/routing";
 import styles from "./LocaleSwitcher.module.css";
 import { Link } from "@/i18n/navigation";
 
-export default function LocaleSwitcher() {
+export function LocaleSwitcher() {
   const localePathname = usePathname();
   // const redirectedPathname = (locale: string) => {
   //   if (!pathname) return "/";

@@ -4,7 +4,7 @@ import tgQr from "../../../public/qr.png";
 import enso from "../../../public/zen.png";
 import Image from "next/image";
 import { getTranslations } from "next-intl/server";
-import { HyperLink } from "@/components/HyperLinkRich";
+import { HyperLink } from "@/components/Hyperlink";
 
 export default async function Home() {
   const t = await getTranslations("main");

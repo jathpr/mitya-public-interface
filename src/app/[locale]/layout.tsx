@@ -3,7 +3,7 @@ import { Geist } from "next/font/google";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
-import LocaleSwitcher from "@/components/LocaleSwitcher";
+import { LocaleSwitcher } from "@/components/LocaleSwitcher";
 
 import { routing } from "@/i18n/routing";
 import { notFound } from "next/navigation";
