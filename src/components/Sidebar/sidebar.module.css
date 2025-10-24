@@ -1,0 +1,22 @@
+.sidebar {
+  width: 100vw;
+  transition: width 0.3s ease-in-out;
+  background-color: #6e7867;
+}
+
+.collapsed {
+  transition: width 0.3s ease-in-out;
+  width: 0;
+  display: none;
+}
+
+.qr {
+  width: 20vh;
+  height: 20vh;
+}
+
+.button {
+  /* float: right; */
+  background-color: #6e7867;
+  color: #d2d49b;
+}

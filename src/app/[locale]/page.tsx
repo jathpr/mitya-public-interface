@@ -11,12 +11,14 @@ export default async function Home() {
   return (
     <div className={styles.page}>
       <Image src={enso} alt={t("imgEnso")} className={styles.enso} />
-      {t.rich("text", {
-        about: (c) => <HyperLink url="/about">{c}</HyperLink>,
-        meditation: (c) => <HyperLink url="/meditation">{c}</HyperLink>,
-        programming: (c) => <HyperLink url="/programming">{c}</HyperLink>,
-        br: () => <br />,
-      })}
+      <p className={styles.text}>
+        {t.rich("text", {
+          about: (c) => <HyperLink url="/about">{c}</HyperLink>,
+          meditation: (c) => <HyperLink url="/meditation">{c}</HyperLink>,
+          programming: (c) => <HyperLink url="/programming">{c}</HyperLink>,
+          br: () => <br />,
+        })}
+      </p>
       <Link
         rel="noopener noreferrer"
         target="_blank"

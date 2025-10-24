@@ -1,7 +1,4 @@
 .container {
-  position: fixed;
-  right: 0;
-  top: 0;
   width: 30%;
   min-width: fit-content;
   text-align: center;

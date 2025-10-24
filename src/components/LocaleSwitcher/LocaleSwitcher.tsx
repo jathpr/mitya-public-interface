@@ -7,12 +7,6 @@ import { Link } from "@/i18n/navigation";
 
 export function LocaleSwitcher() {
   const localePathname = usePathname();
-  // const redirectedPathname = (locale: string) => {
-  //   if (!pathname) return "/";
-  //   const segments = pathname.split("/");
-  //   segments[1] = locale;
-  //   return segments.join("/");
-  // };
   const pathname = usePathname().length < 4 ? "/" : localePathname.substring(3);
   return (
     <div className={styles.container}>

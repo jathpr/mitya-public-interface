@@ -8,6 +8,8 @@ import { LocaleSwitcher } from "@/components/LocaleSwitcher";
 import { routing } from "@/i18n/routing";
 import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import { Sidebar } from "@/components/Sidebar/Sidebar";
+import styles from "./layout.module.css";
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -44,7 +46,12 @@ export default async function RootLayout({ children, params }: Props) {
     <html lang="en">
       <body className={`${geistSans.className}`}>
         <NextIntlClientProvider>
-          <LocaleSwitcher />
+          <div className={styles.locales}>
+            <LocaleSwitcher />
+          </div>
+          <div className={styles.sidebar}>
+            <Sidebar />
+          </div>
           {children}
           <SpeedInsights />
         </NextIntlClientProvider>

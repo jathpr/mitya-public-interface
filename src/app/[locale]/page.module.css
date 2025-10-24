@@ -31,17 +31,21 @@
 @media (max-width: 784px) {
   .page {
     grid-template-columns: 1fr;
+    grid-template-rows: 3fr 2fr;
+    height: 90vh;
   }
 
   .enso {
+    grid-row: 1 / 2;
     padding: 10%;
   }
 
   .qrLink {
-    justify-self: start;
+    display: none;
   }
-}
 
-.text {
-  width: 50vw;
+  .text {
+    width: 70vw;
+    align-self: baseline;
+  }
 }

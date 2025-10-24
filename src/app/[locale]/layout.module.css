@@ -1,0 +1,22 @@
+.locales {
+  position: fixed;
+  right: 0;
+  top: 0;
+}
+
+.sidebar {
+  display: none;
+}
+
+@media (max-width: 784px) {
+  .locales {
+    display: none;
+  }
+
+  .sidebar {
+    display: block;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+  }
+}
