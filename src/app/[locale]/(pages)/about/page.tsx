@@ -1,5 +1,5 @@
 import styles from "./page.module.css";
-import mitya from "../../../../../public/me.jpg";
+import mitya from "p@/me.jpg";
 import Image from "next/image";
 import Link from "next/link";
 import { getTranslations } from "next-intl/server";

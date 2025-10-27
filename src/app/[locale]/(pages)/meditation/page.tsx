@@ -1,6 +1,6 @@
-import { Link } from "@/i18n/navigation";
 import styles from "./page.module.css";
 import { useTranslations } from "next-intl";
+import { HyperLink } from "@/components/Hyperlink";
 
 export default function Meditation() {
   const t = useTranslations("meditation");
@@ -12,7 +12,7 @@ export default function Meditation() {
         })}
       </p>
 
-      <Link href="/QuoVadis">{t("course")}</Link>
+      <HyperLink url={"/QuoVadis"}>{t("course")}</HyperLink>
     </div>
   );
 }

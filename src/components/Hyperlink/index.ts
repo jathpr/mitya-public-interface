@@ -1,1 +1,1 @@
-export { HyperLink } from "./HyperLinkRich";
+export { HyperLink } from "./HyperLink";

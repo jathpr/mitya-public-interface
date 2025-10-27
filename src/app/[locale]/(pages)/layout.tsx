@@ -1,5 +1,5 @@
 import Image from "next/image";
-import enso from "../../../../public/zen.png";
+import enso from "p@/zen.png";
 import styles from "./layout.module.css";
 import { Link } from "@/i18n/navigation";
 

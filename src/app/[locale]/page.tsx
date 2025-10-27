@@ -1,7 +1,7 @@
 import Link from "next/link";
 import styles from "./page.module.css";
-import tgQr from "../../../public/qr.png";
-import enso from "../../../public/zen.png";
+import tgQr from "p@/qr.png";
+import enso from "p@/zen.png";
 import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 import { HyperLink } from "@/components/Hyperlink";
