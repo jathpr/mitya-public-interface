@@ -17,8 +17,10 @@
 
 .spinner {
   display: inline-block;
-  border: 3px solid #ffffff;
-  border-top: 3px solid #beac46;
+  border: 3px solid #000000;
+  border-top: 3px solid #6e7867;
+  border-top-width: 1.7px;
+  margin-left: 6px;
   border-radius: 50%;
   width: 16px;
   height: 16px;

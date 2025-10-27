@@ -13,8 +13,8 @@ export const HyperLink = ({ url, children }: Props) => {
   const { pending } = useLinkStatus();
   return (
     <Link href={url} className={styles.hyperlink}>
-      {!pending && children}
-      {pending && <div className={styles.spinner} />}
+      {children}
+      {pending && <span className={styles.spinner} />}
     </Link>
   );
 };
