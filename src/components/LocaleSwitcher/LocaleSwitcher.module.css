@@ -1,42 +1,102 @@
-/* LocaleSwitcher.module.css - КАНЧАТКОВАЯ ВЕРСІЯ З ЭФЕКТАМ РАЗМЫЦЦЯ (Blur) */
+/* LocaleSwitcher.module.css - АПОШНЯЕ, НАДЗЕЙНАЕ ВЫПРАЎЛЕННЕ: Прамы фон іконкі */
 
 .container {
   min-width: fit-content;
-  text-align: right;
-
-  /* Кампактны дысплей і водступы */
-  display: inline-flex;
+  display: flex;
   align-items: center;
+
+  /* ВАЖНА: Вертыкальны padding для стабільнай вышыні */
   padding: 8px 12px;
 
-  border-radius: 4px;
-
-  /* НОВАЕ: Фон для празрыстасці і размыцця */
-  background-color: rgba(0, 0, 0, 0.4); /* Больш празрысты фон */
-
-  /* НОВАЕ: ЭФЕКТ РАЗМЫЦЦЯ (Blur) */
+  /* АСНОЎНЫ ФОН І BLUR НА ЎВЕСЬ БЛОК (празрыстасць 0.4) */
+  background-color: rgba(0, 0, 0, 0.4);
   backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px); /* Для падтрымкі ў браўзерах на Webkit */
+  -webkit-backdrop-filter: blur(5px);
 
-  /* ЦЕНЬ: Робім яе крыху меншай і мякчэйшай */
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+  /* АДЗІНЫ ЦЕНЬ НА ЎВЕСЬ БЛОК */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+  transition: box-shadow 0.2s ease-in-out;
 
-  /* НОВАЕ: Дадамо плаўны пераход для візуальных эфектаў блока */
-  transition: box-shadow 0.2s ease-in-out, background-color 0.2s ease-in-out;
+  border-radius: 4px;
+  overflow: hidden;
+  box-sizing: border-box;
 }
 
-/* НОВЫ СТЫЛЬ: Пры навядзенні на ўвесь кантэйнер, цень павялічваецца,
-   што робіць "пераход" больш мяккім і прыкметным */
 .container:hover {
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-  background-color: rgba(
-    0,
-    0,
-    0,
-    0.5
-  ); /* Крыху менш празрысты пры навядзенні */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.8);
 }
 
+/* 1. Кантэйнер-абгортка для іконкі */
+.iconWrapper {
+  display: flex;
+  align-items: center;
+  padding: 0;
+  cursor: pointer;
+  z-index: 2;
+  position: relative;
+
+  /* ЗМЕНЕНА: Цяпер гэта прамы, непразрысты колер! */
+  background-color: rgba(
+    69,
+    78,
+    62,
+    1
+  ); /* Цёмна-зялёны, каб схаваць артэфакты */
+
+  /* НОВАЕ: Задаем шырыню і вышыню, каб ён ідэальна ўпісваўся */
+  width: 20px;
+  height: 20px;
+
+  /* Куты і пераходы */
+  border-radius: 4px;
+  transition: background-color 0.2s ease-in-out, border-radius 0.3s ease-in-out;
+}
+
+/* Мы павінны схаваць частку iconWrapper, калі ён згорнуты, праз асноўны .container */
+
+/* Калі спіс адкрыты, iconWrapper губляе правы кут */
+.container[aria-expanded="true"] .iconWrapper {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.worldIcon {
+  color: #d2d49b;
+  /* Іконка павінна займаць усю даступную прастору */
+  width: 100%;
+  height: 100%;
+  transition: transform 0.2s ease-in-out;
+}
+
+.container[aria-expanded="true"] .worldIcon {
+  transform: rotate(15deg);
+}
+
+/* 2. БЛОК З НАЗВАМІ МОВАЎ */
+.languageList {
+  display: flex;
+  align-items: center;
+
+  max-width: 0;
+  opacity: 0;
+  pointer-events: none;
+
+  background-color: transparent;
+  z-index: 1;
+
+  margin-left: 10px;
+
+  transition: max-width 0.3s ease-out, opacity 0.2s ease-out 0.1s;
+}
+
+/* Калі спіс РАСКРЫТЫ */
+.expanded {
+  max-width: 400px;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Стылі для спасылак і падзельніка - без змен */
 .link {
   color: #d2d49b;
   display: inline;
@@ -44,16 +104,15 @@
   margin: 0 5px;
   text-decoration: none;
   font-size: 1rem;
-  /* НОВАЕ: Плаўны пераход для колеру і непразрыстасці спасылак */
+  font-weight: bold;
   transition: opacity 0.2s ease-in-out;
+  white-space: nowrap;
 }
 
 .link:hover {
-  opacity: 1; /* Поўная непразрыстасць пры навядзенні */
-  text-decoration: none;
+  opacity: 1;
 }
 
-/* Стыль для падзельніка "/" */
 .separator {
   color: #d2d49b;
   font-style: italic;
@@ -61,4 +120,5 @@
   opacity: 0.7;
   font-size: 1rem;
   font-weight: normal;
+  white-space: nowrap;
 }
