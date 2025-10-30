@@ -1,24 +1,33 @@
+// LocaleSwitcher.tsx - Застаецца без змен з папярэдняга кроку
 "use client";
 
-import { usePathname } from "next/navigation";
+import { usePathname, Link } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
 import styles from "./LocaleSwitcher.module.css";
-import { Link } from "@/i18n/navigation";
+import { useLocale } from "next-intl";
+import { Fragment } from "react";
+
+const localeCodes: { [key: string]: string } = {
+  be: "BE",
+  en: "EN",
+  ru: "RU",
+};
 
 export function LocaleSwitcher() {
-  const localePathname = usePathname();
-  const pathname = usePathname().length < 4 ? "/" : localePathname.substring(3);
+  const pathname = usePathname();
+  const currentLocale = useLocale();
+  const otherLocales = routing.locales.filter((loc) => loc !== currentLocale);
+
   return (
     <div className={styles.container}>
-      <Link locale={routing.locales[0]} href={pathname} className={styles.link}>
-        мова
-      </Link>
-      <Link locale={routing.locales[1]} href={pathname} className={styles.link}>
-        language
-      </Link>
-      <Link locale={routing.locales[2]} href={pathname} className={styles.link}>
-        язык
-      </Link>
+      {otherLocales.map((locale, index) => (
+        <Fragment key={locale}>
+          {index > 0 && <span className={styles.separator}>/</span>}
+          <Link locale={locale} href={pathname} className={styles.link}>
+            {localeCodes[locale]}
+          </Link>
+        </Fragment>
+      ))}
     </div>
   );
 }
