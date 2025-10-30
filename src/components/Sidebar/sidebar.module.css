@@ -60,11 +60,10 @@
   Немного уменьшим его и добавим отступ сверху.
 */
 .qr {
-  width: 20vh;
-  height: 20vh;
-  /* Добавим максимальный размер на случай очень больших экранов */
+  /* Use viewport-based sizing but clamp to a reasonable maximum */
+  width: min(36vw, 180px);
+  height: auto;
   max-width: 180px;
-  max-height: 180px;
   margin-top: 30px; /* Отступ от переключателя языка */
 }
 
@@ -83,7 +82,7 @@
   background-color: transparent; /* Убираем фон */
   color: #d2d49b; /* Цвет текста */
   border: none;
-  padding: 10px;
+  padding: 10px 12px;
   cursor: pointer;
   font-size: 1.1rem;
   font-weight: bold;
@@ -92,6 +91,22 @@
     на любом фоне (на случай, если оверлей полупрозрачный)
   */
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Improve button touch target on small devices */
+@media (max-width: 480px) {
+  .button {
+    bottom: 18px;
+    left: 14px;
+    padding: 14px;
+    font-size: 1.2rem;
+    background-color: rgba(0, 0, 0, 0.08);
+    border-radius: 8px;
+  }
+
+  .overlay {
+    padding: 16px; /* a little less padding on small screens */
+  }
 }
 
 /* Эффект при наведении на кнопку */

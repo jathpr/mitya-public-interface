@@ -9,15 +9,16 @@
   position: fixed;
   bottom: 20px;
   right: 20px;
-  width: 20vh;
+  /* Responsive size: prefers relative vw but clamps to reasonable pixels */
+  width: clamp(80px, 20vw, 140px);
+  height: clamp(80px, 20vw, 140px);
   object-fit: cover;
-  height: 20vh;
 }
 
 .ava {
   position: absolute;
   color: transparent;
   cursor: pointer;
-  width: 20vh;
-  height: 20vh;
+  width: clamp(80px, 20vw, 140px);
+  height: clamp(80px, 20vw, 140px);
 }

@@ -7,6 +7,7 @@ import { LocaleSwitcher } from "../LocaleSwitcher";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { HiMenu, HiX } from "react-icons/hi";
+import { Link } from "@/i18n/navigation";
 
 export const Sidebar = () => {
   // Используем 'isOpen' (открыто) вместо 'isCollapsed' (свернуто)
@@ -34,6 +35,7 @@ export const Sidebar = () => {
         в зависимости от того, какой класс применен.
       */}
       <div
+        // onClick={toggleSidebar}
         className={`${styles.overlay} ${
           isOpen ? styles.overlayVisible : styles.overlayHidden
         }`}
@@ -43,7 +45,14 @@ export const Sidebar = () => {
         */}
         <nav className={styles.content}>
           <LocaleSwitcher />
-          <Image src={tgQr} alt={t("imgTg")} className={styles.qr} />
+          <Link
+            rel="noopener noreferrer"
+            target="_blank"
+            href="https://t.me/jathpr"
+            className={styles.qrLink}
+          >
+            <Image src={tgQr} alt={t("imgTg")} className={styles.qr} />
+          </Link>
         </nav>
       </div>
     </>

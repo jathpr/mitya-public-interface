@@ -7,18 +7,34 @@
 }
 
 .photo {
-  height: 60vh;
+  /* Prefer a responsive square that stays circular via border-radius */
+  width: clamp(160px, 36vw, 900px);
+  height: auto;
+  aspect-ratio: 1 / 1;
   transform: scaleX(-1);
-  width: 60vh;
   object-fit: cover;
   border-radius: 50%;
 }
 
 .text {
-  width: 50vw;
+  width: clamp(220px, 44vw, 700px);
 }
 
-.qr {
-  width: 20vh;
-  height: 20vh;
+/* Responsive layout for narrow screens: stack content vertically */
+@media (max-width: 784px) {
+  .photo {
+    width: clamp(100px, 75vw, 50vh);
+  }
+
+  .page {
+    grid-template-columns: 1fr;
+    height: auto;
+    gap: 10vh;
+    padding: 32px 16px;
+  }
+
+  .text {
+    width: 80vw;
+    max-width: 720px;
+  }
 }
