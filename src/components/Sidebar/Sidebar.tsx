@@ -3,11 +3,11 @@
 import { useState } from "react";
 import styles from "./sidebar.module.css";
 import tgQr from "p@/qr.png"; // Убедись, что этот путь к QR-коду верный
-import { LocaleSwitcher } from "../LocaleSwitcher";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { HiMenu, HiX } from "react-icons/hi";
 import { Link } from "@/i18n/navigation";
+import { LSforSide2 } from "../LocaleSwitcher/LSforSide2";
 
 export const Sidebar = () => {
   // Используем 'isOpen' (открыто) вместо 'isCollapsed' (свернуто)
@@ -44,7 +44,6 @@ export const Sidebar = () => {
           чтобы его было легче стилизовать и центрировать.
         */}
         <nav className={styles.content}>
-          <LocaleSwitcher />
           <Link
             rel="noopener noreferrer"
             target="_blank"
@@ -53,6 +52,7 @@ export const Sidebar = () => {
           >
             <Image src={tgQr} alt={t("imgTg")} className={styles.qr} />
           </Link>
+          <LSforSide2 />
         </nav>
       </div>
     </>
