@@ -1,12 +1,11 @@
 "use client";
 
-import { usePathname, Link } from "@/i18n/navigation"; // <-- ПАВІННА БЫЦЬ ТАК
+import { usePathname, Link } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
 import styles from "./LocaleSwitcher.module.css";
-// import { Link } from "@/i18n/navigation"; <-- Ужо імпартавана вышэй
-import { TfiWorld } from "react-icons/tfi";
-import { useState, useRef, useEffect, Fragment } from "react";
 import { useLocale } from "next-intl";
+import { Fragment, useState, useRef, useEffect } from "react";
+import { TfiWorld } from "react-icons/tfi";
 
 // Аб'ект для адлюстравання назваў моў на іх саміх
 const localeNames: { [key: string]: string } = {
@@ -19,16 +18,16 @@ export function LocaleSwitcher() {
   const [isExpanded, setIsExpanded] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
-  // Цяпер usePathname бярэцца з next-intl і вяртае шлях без мовы
-  const pathname = usePathname();
   const currentLocale = useLocale();
+
+  const localePathname = usePathname();
+  const pathname = localePathname;
 
   const localesToDisplay = routing.locales.filter(
     (loc) => loc !== currentLocale
   );
 
   const handleLocaleChange = () => {
-    // Пасля выбару мовы закрываем спіс
     setIsExpanded(false);
   };
 
@@ -51,15 +50,16 @@ export function LocaleSwitcher() {
   return (
     <div
       ref={containerRef}
-      className={`${styles.container}`}
-      // Увесь клік адбываецца на iconWrapper
+      className={styles.container}
       role="group"
       aria-expanded={isExpanded}
+      /* ЗМЕНЕНА: КЛІК НА ЎВЕСЬ БЛОК */
+      onClick={() => setIsExpanded(!isExpanded)}
     >
-      {/* 1. ІКОНКА-ТРЫГЕР (заўсёды бачная) */}
+      {/* 1. ІКОНКА-ТРЫГЕР */}
       <span
         className={styles.iconWrapper}
-        onClick={() => setIsExpanded(!isExpanded)}
+        /* ЗМЕНЕНА: Выдалены onClick */
         role="button"
       >
         <TfiWorld size={20} className={styles.worldIcon} />
@@ -70,7 +70,7 @@ export function LocaleSwitcher() {
         className={`${styles.languageList} ${
           isExpanded ? styles.expanded : ""
         }`}
-        // Спыняем клік на гэтым блоку, каб ён не спрацаваў на iconWrapper і не закрыў спіс
+        /* ВАЖНА: Спыняем клік на мовах, каб не закрываць спіс адразу пасля выбару Link */
         onClick={(e) => e.stopPropagation()}
       >
         {localesToDisplay.map((locale, index) => (
