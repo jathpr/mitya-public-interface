@@ -1,20 +1,20 @@
-/* LocaleSwitcher.module.css - КАНЧАТКОВАЯ ВЕРСІЯ: Стабільная вышыня + Адзіны ЦЕНЬ */
+/* LocaleSwitcher.module.css - КАНЧАТКОВАЯ ВЕРСІЯ: Цэнтраванне і фінальныя стылі */
 
 .container {
   min-width: fit-content;
   display: flex;
-  align-items: center; /* Цэнтруе ўнутраныя элементы па вертыкалі */
+  align-items: center; /* Цэнтруе ўвесь кантэнт па вертыкалі */
 
   /* ВАЖНА: Вертыкальны padding для стабільнай вышыні */
-  padding: 8px 12px;
+  padding: 8px 14px;
+  cursor: pointer; /* Клікабельны ўвесь блок */
 
   /* АСНОЎНЫ ФОН І BLUR НА ЎВЕСЬ БЛОК */
   background-color: rgba(0, 0, 0, 0.4);
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
 
-  /* ЗМЕНЕНА: АДЗІНЫ ЦЕНЬ НА ЎВЕСЬ БЛОК */
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6); /* Павялічылі цень */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
   transition: box-shadow 0.2s ease-in-out;
 
   border-radius: 4px;
@@ -23,54 +23,43 @@
 }
 
 .container:hover {
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.8); /* Цень пры навядзенні курсора */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.8);
 }
 
 /* 1. Кантэйнер-абгортка для іконкі */
 .iconWrapper {
+  /* НОВАЕ: Flexbox для цэнтравання іконкі */
   display: flex;
-  align-items: center;
-  padding: 2px;
-  cursor: pointer;
+  justify-content: center; /* Цэнтр па гарызанталі */
+  align-items: center; /* Цэнтр па вертыкалі */
+
+  padding: 0;
   z-index: 2;
   position: relative;
 
-  /* Фон iconWrapper - ПРАЗРЫСТЫ! Ён будзе паказваць асноўны фон .container */
-  background-color: transparent;
+  /* Спрошчаны фон для ліквідацыі артэфактаў */
+  background-color: rgba(69, 78, 62, 1);
 
-  transition: background-color 0.2s ease-in-out;
+  /* Фіксаваныя памеры для роўнага квадрата (калі трэба) */
+  width: 20px;
+  height: 20px;
+
+  /* Куты і пераходы */
+  border-radius: 4px;
+  transition: background-color 0.2s ease-in-out, border-radius 0.3s ease-in-out;
 }
 
-/* СТВАРЭННЕ БОЛЬШ СВЕТЛАГА БЛОКА З ДАПАМОГАЙ ПСЕЎДАЭЛЕМЕНТА */
-.iconWrapper::after {
-  content: "";
-  position: absolute;
-  /* Разлічваем, каб псеўдаэлемент займаў толькі частку шырыні */
-  top: -16px;
-  bottom: -16px;
-  left: -12px;
-  right: -12px;
-  z-index: -1;
-
-  background-color: rgba(0, 0, 0, 0.15); /* Ваш выбраны колер */
-
-  /* Куты тут задаюцца на поўную вобласць, уключаючы padding */
-  border-top-left-radius: 4px;
-  border-bottom-left-radius: 4px;
-  border-top-right-radius: 4px;
-  border-bottom-right-radius: 4px;
-
-  transition: border-radius 0.3s ease-in-out;
-}
-
-/* Калі спіс адкрыты, iconWrapper::after губляе правы кут */
-.container[aria-expanded="true"] .iconWrapper::after {
+/* Калі спіс адкрыты, iconWrapper губляе правы кут */
+.container[aria-expanded="true"] .iconWrapper {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 }
 
 .worldIcon {
   color: #d2d49b;
+  /* ВАЖНА: Памер іконкі цяпер задае сам TfiWorld (size=20), а не CSS */
+  width: 100%;
+  height: 100%;
   transition: transform 0.2s ease-in-out;
 }
 
@@ -83,15 +72,12 @@
   display: flex;
   align-items: center;
 
-  /* Схаваны стан */
   max-width: 0;
   opacity: 0;
   pointer-events: none;
 
   background-color: transparent;
   z-index: 1;
-
-  /* Адлегласць ад іконкі */
 
   transition: max-width 0.3s ease-out, opacity 0.2s ease-out 0.1s;
 }
