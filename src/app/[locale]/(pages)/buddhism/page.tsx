@@ -8,10 +8,14 @@ export default function Buddhism() {
       <blockquote className={styles.quote}>
         <q className={styles.text}>{t("quote")}</q>
         <br />
+        <br />
         <cite>{t("quoteAutor")}</cite>
       </blockquote>
+      <br />
+
       <p className={styles.text}>{t("overview")}</p>
-      {t("keyWords")}
+      <br />
+      <p className={styles.text}>{t("keyWords")}</p>
       {/* <p className={styles.text}>
         Прапаную паглядзець на некалькі ракурсаў Буддызму <br />
         - Навуковы. Гэта набор тэрмінаў і эмпірычнага вопыту ў сферы даследвання

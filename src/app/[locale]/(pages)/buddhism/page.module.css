@@ -1,14 +1,26 @@
 .page {
   display: grid;
-  height: 100vh;
+  height: 80vh;
   justify-items: center;
   align-items: center;
 }
 
 .quote {
-  margin-left: 50vw;
+  margin-left: 33vw;
 }
 
 .text {
   width: 50vw;
+}
+
+@media (max-width: 784px) {
+  .text {
+    width: 60vw;
+  }
+}
+
+@media (max-width: 550px) {
+  .text {
+    width: 80vw;
+  }
 }
