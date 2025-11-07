@@ -7,7 +7,7 @@ import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { HiMenu, HiX } from "react-icons/hi";
 import { Link } from "@/i18n/navigation";
-import { LSforSide2 } from "../LocaleSwitcher/LSforSide2";
+import { LocaleSwitcher } from "../LocaleSwitcher/LSforSide";
 
 export const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -37,7 +37,7 @@ export const Sidebar = () => {
           >
             <Image src={tgQr} alt={t("imgTg")} className={styles.qr} />
           </Link>
-          <LSforSide2 />
+          <LocaleSwitcher />
         </nav>
       </div>
     </>

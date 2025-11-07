@@ -55,7 +55,8 @@ export default async function RootLayout({ children, params }: Props) {
           <div className={styles.sidebar}>
             <Sidebar />
           </div>
-          {children}
+
+          <div className={styles.mainContent}>{children}</div>
           <SpeedInsights />
         </NextIntlClientProvider>
       </body>

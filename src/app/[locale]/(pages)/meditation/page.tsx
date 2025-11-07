@@ -11,7 +11,6 @@ export default function Meditation() {
           br: () => <br />,
         })}
       </p>
-
       <HyperLink url={"/QuoVadis"}>{t("course")}</HyperLink>
     </div>
   );

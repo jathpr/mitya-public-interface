@@ -20,4 +20,10 @@
     right: 0;
     z-index: 1;
   }
+
+  .mainContent {
+    max-height: 80vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
 }
