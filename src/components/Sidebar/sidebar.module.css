@@ -1,119 +1,86 @@
-/* sidebar.module.css */
-
-/* Стиль для оверлея (всплывающего меню).
-  Он зафиксирован поверх всего контента.
-*/
 .overlay {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw; /* 100% ширины окна */
-  height: 100vh; /* 100% высоты окна */
-  background-color: #6e7867; /* Тот же фон, что на скриншоте */
+  width: 100vw;
+  height: 100vh;
+  background-color: #6e7867;
 
-  /* Плавный переход для анимации выезда */
   transition: transform 0.3s ease-in-out;
 
-  /* Высокий z-index, чтобы быть поверх контента страницы */
-  z-index: 1000;
+  z-index: 10;
 
-  /* Используем flexbox для центрирования содержимого */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: 20px;
-  box-sizing: border-box; /* Учитывать padding в расчетах */
+  box-sizing: border-box;
 }
 
-/* Класс для СКРЫТОГО состояния оверлея.
-  Мы сдвигаем его на 100% своей ширины влево,
-  убирая его с экрана.
-*/
 .overlayHidden {
   transform: translateX(-100%);
-  visibility: hidden; /* Скрываем, чтобы нельзя было взаимодействовать */
+  visibility: hidden;
 }
 
-/* Класс для ВИДИМОГО состояния оверлея.
-  Возвращаем его в исходное положение (0).
-*/
 .overlayVisible {
   transform: translateX(0);
   visibility: visible;
 }
 
-/* Контейнер для твоего контента (переключатель языка и QR).
-  Он также использует flexbox для центрирования.
-*/
 .content {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  /* Цвет текста для LocaleSwitcher, как на скриншоте */
   color: #d2d49b;
 }
 
-/* Стиль для QR-кода.
-  Немного уменьшим его и добавим отступ сверху.
-*/
 .qr {
-  /* Use viewport-based sizing but clamp to a reasonable maximum */
   width: min(36vw, 180px);
   height: auto;
   max-width: 180px;
-  margin-top: 30px; /* Отступ от переключателя языка */
+  margin-top: 30px;
 }
 
 .qrLink {
   margin-bottom: 100px;
 }
 
-/* Стиль для кнопки "Menu" / "Hide menu".
-  Она также зафиксирована.
-*/
 .button {
   position: fixed;
-  bottom: 20px; /* Отступ снизу */
-  left: 20px; /* Отступ слева */
+  bottom: 20px;
+  left: 20px;
 
-  /* z-index ДОЛЖЕН БЫТЬ ВЫШЕ, чем у .overlay */
-  z-index: 1001;
+  z-index: 11;
 
-  /* Стилизация кнопки */
-  background-color: transparent; /* Убираем фон */
-  color: #d2d49b; /* Цвет текста */
+  background-color: rgba(0, 0, 0, 0.08);
+  border-radius: 8px;
+  color: #d2d49b;
   border: none;
-  padding: 10px 12px;
+  padding: 14px 16px;
   cursor: pointer;
   font-size: 1.1rem;
   font-weight: bold;
 
-  /* Небольшая тень для текста, чтобы он был читаемым
-    на любом фоне (на случай, если оверлей полупрозрачный)
-  */
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
-/* Improve button touch target on small devices */
 @media (max-width: 480px) {
   .button {
     bottom: 18px;
     left: 14px;
-    padding: 14px;
     font-size: 1.2rem;
     background-color: rgba(0, 0, 0, 0.08);
     border-radius: 8px;
   }
 
   .overlay {
-    padding: 16px; /* a little less padding on small screens */
+    padding: 16px;
   }
 }
 
-/* Эффект при наведении на кнопку */
 .button:hover {
   opacity: 0.8;
 }
