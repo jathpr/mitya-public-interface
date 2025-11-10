@@ -1,6 +1,6 @@
 {
   "main": {
-    "text": "Здравствуй. <about>Меня</about> зовут Митя.<br></br>Я предлагаю свои услуги в сферах <meditation>медитации</meditation> и <programming>программирования</programming>",
+    "text": "Здравствуй. <about>Меня</about> зовут Митя.<br></br>Я предлагаю свои услуги в сфере <meditation>медитации</meditation> <br></br><br></br><br></br>*и <programming>программирования</programming>",
     "imgEnso": "Энсо",
     "imgTg": "qr-код Telegram"
   },
