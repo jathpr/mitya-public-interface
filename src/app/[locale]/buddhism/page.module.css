@@ -1,6 +1,5 @@
 .page {
   display: grid;
-  height: 80vh;
   justify-items: center;
   align-items: center;
 }

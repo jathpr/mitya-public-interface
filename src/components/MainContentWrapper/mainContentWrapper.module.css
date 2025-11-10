@@ -1,0 +1,30 @@
+@media (max-width: 784px) {
+  .mainContent {
+    max-height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-top: 40px;
+    padding-bottom: 100px;
+    box-sizing: border-box;
+    z-index: 1;
+    position: relative;
+  }
+
+  .mainContent.isOverflowing::after {
+    content: "";
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 150px;
+
+    background: linear-gradient(
+      to top,
+      #6e7867 50%,
+      rgba(110, 120, 103, 0) 100%
+    );
+
+    z-index: 1;
+    pointer-events: none;
+  }
+}

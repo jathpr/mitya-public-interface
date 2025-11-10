@@ -11,6 +11,9 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Sidebar } from "@/components/Sidebar/Sidebar";
 import styles from "./layout.module.css";
 
+import { HomeButton } from "@/components/HomeButton";
+import { MainContentWrapper } from "@/components/MainContentWrapper";
+
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
@@ -25,7 +28,6 @@ type Props = Readonly<{
 }>;
 
 export async function generateMetadata(): Promise<Metadata> {
-  // const { locale } = await params;
   const t = await getTranslations("meta");
   return {
     title: t("title"),
@@ -38,8 +40,6 @@ export default async function RootLayout({ children, params }: Props) {
   if (!hasLocale(routing.locales, locale)) {
     notFound();
   }
-
-  // // Enable static rendering
   setRequestLocale(locale);
 
   return (
@@ -52,11 +52,13 @@ export default async function RootLayout({ children, params }: Props) {
           <div className={styles.locales}>
             <LocaleSwitcher />
           </div>
+
           <div className={styles.sidebar}>
             <Sidebar />
           </div>
 
-          <div className={styles.mainContent}>{children}</div>
+          <HomeButton />
+          <MainContentWrapper>{children}</MainContentWrapper>
           <SpeedInsights />
         </NextIntlClientProvider>
       </body>

@@ -23,14 +23,14 @@
 /* Responsive layout for narrow screens: stack content vertically */
 @media (max-width: 784px) {
   .photo {
-    width: clamp(100px, 75vw, 50vh);
+    width: clamp(100px, 75vw, 45vh);
   }
 
   .page {
     grid-template-columns: 1fr;
-    height: auto;
-    gap: 10vh;
-    padding: 32px 16px;
+    height: 70vh;
+    gap: 5vh;
+    /* align-items: center; */
   }
 
   .text {

@@ -17,13 +17,6 @@
     display: block;
     position: fixed;
     bottom: 0;
-    right: 0;
-    z-index: 1;
-  }
-
-  .mainContent {
-    max-height: 80vh;
-    overflow-y: auto;
-    overflow-x: hidden;
+    z-index: 2;
   }
 }
