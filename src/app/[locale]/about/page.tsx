@@ -9,7 +9,7 @@ export default async function about() {
   const t = await getTranslations("about");
   return (
     <div className={styles.page}>
-      <Link href="/buddhism/intro">
+      <Link href="/video">
         <Image src={mitya} alt={t("imgPhoto")} className={styles.photo} />
       </Link>
       <p className={styles.text}>
