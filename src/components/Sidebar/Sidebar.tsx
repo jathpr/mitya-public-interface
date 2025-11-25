@@ -7,6 +7,7 @@ import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { HiMenu, HiX } from "react-icons/hi";
 import { Link } from "@/i18n/navigation";
+import { Navigation } from "./Navigation";
 import { LocaleSwitcher } from "../LocaleSwitcher/LSforSide";
 
 export const Sidebar = () => {
@@ -29,6 +30,8 @@ export const Sidebar = () => {
         }`}
       >
         <nav className={styles.content}>
+          {/* Only show navigation on mobile */}
+          <Navigation />
           <Link
             rel="noopener noreferrer"
             target="_blank"
