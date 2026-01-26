@@ -7,7 +7,6 @@ import { useLocale } from "next-intl";
 import { Fragment, useState, useRef, useEffect } from "react";
 import { TfiWorld } from "react-icons/tfi";
 
-// Аб'ект для адлюстравання назваў моў на іх саміх
 const localeNames: { [key: string]: string } = {
   be: "Беларуская",
   en: "English",
@@ -24,7 +23,13 @@ export function LocaleSwitcher({
 
   const currentLocale = useLocale();
   const localePathname = usePathname();
-  const pathname = localePathname;
+  
+  // Remove locale prefix from pathname for the Link component
+  const pathWithoutLocale = `/${localePathname
+    .split("/")
+    .slice(2)
+    .join("/")}`.replace(/\/$/, "") || "/";
+  
   const localesToDisplay = routing.locales.filter(
     (loc) => loc !== currentLocale
   );
@@ -53,8 +58,6 @@ export function LocaleSwitcher({
     <div
       ref={containerRef}
       className={styles.container}
-      role="group"
-      aria-expanded={isExpanded}
       onClick={() => setIsExpanded(!isExpanded)}
     >
       <span className={styles.iconWrapper} role="button">
@@ -71,7 +74,7 @@ export function LocaleSwitcher({
             {index > 0 && <span className={styles.separator}>/</span>}
             <Link
               locale={locale}
-              href={pathname}
+              href={pathWithoutLocale}
               className={styles.link}
               onClick={handleLocaleChange}
             >
