@@ -5,6 +5,10 @@ const withNextIntl = createNextIntlPlugin(
   "./src/i18n/request.ts"
 );
 
-const nextConfig: NextConfig = {};
+const nextConfig: NextConfig = {
+  experimental: {
+    optimizePackageImports: ["@vercel/blob"],
+  },
+};
 
 export default withNextIntl(nextConfig);
