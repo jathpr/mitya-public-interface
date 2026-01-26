@@ -10,6 +10,21 @@
 
 .text {
   width: 50vw;
+  position: relative;
+}
+
+.fadeEnd {
+  pointer-events: none;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 40px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0),
+    var(--background) 90%
+  );
 }
 
 @media (max-width: 784px) {

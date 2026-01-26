@@ -1,36 +1,29 @@
-/* app/[locale]/video/video.module.css */
-
 .pageContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* ВЫПРАЎЛЕННЕ: Заўсёды цэнтруем па вертыкалі */
   justify-content: center;
   width: 100%;
   min-height: 100%;
   padding: 40px 20px;
   box-sizing: border-box;
   position: relative;
-  /* Дадаем водступ знізу для мабільных, каб кнопкі меню не перакрывалі */
   padding-bottom: 120px;
 }
 
-/* НОВАЕ: Кнопка "Назад" */
 .backButton {
   position: absolute;
   top: 20px;
-  left: 20px; /* Злева */
+  left: 20px;
   background-color: rgba(0, 0, 0, 0.08);
   color: #d2d49b;
   border-radius: 8px;
-  padding: 10px 16px; /* Крыху менш */
+  padding: 10px 16px;
   backdrop-filter: blur(5px);
   border: none;
   cursor: pointer;
   z-index: 10;
   transition: background-color 0.2s;
-
-  /* Flex для іконкі і тэксту */
   display: flex;
   align-items: center;
   gap: 8px;
@@ -40,8 +33,6 @@
 .backButton:hover {
   background-color: rgba(0, 0, 0, 0.2);
 }
-
-/* ВЫДАЛЕНА: .closeButton (больш не выкарыстоўваецца) */
 
 .playerWrapper {
   width: 100%;
@@ -58,13 +49,10 @@
   display: block;
   background: #000;
   border-radius: 8px;
-
-  /* НОВАЕ: Эфект плаўнага з'яўлення */
   opacity: 0;
   transition: opacity 0.4s ease-in-out;
 }
 
-/* НОВАЕ: Клас, які дадаецца JS, калі відэа гатова */
 .videoLoaded {
   opacity: 1;
 }
@@ -87,8 +75,6 @@
   margin-bottom: 30px;
 }
 
-/* ВЫДАЛЕНА: .youtubeLink (больш не выкарыстоўваецца) */
-
 @keyframes pulse {
   0% {
     opacity: 1;
@@ -101,11 +87,8 @@
   }
 }
 
-/* Адаптацыя для мабільных */
 @media (max-width: 784px) {
   .pageContainer {
-    /* ВЫДАЛЕНА: justify-content: flex-start (цяпер цэнтраванне адзінае) */
-    /* Пакідаем водступ для ніжняга меню (HomeButton, Sidebar) */
     padding-bottom: 120px;
   }
 
@@ -113,7 +96,6 @@
     font-size: 1rem;
   }
 
-  /* Хаваем тэкст кнопкі "Назад" на маленькіх экранах, пакідаем іконку */
   .backButton span {
     display: none;
   }

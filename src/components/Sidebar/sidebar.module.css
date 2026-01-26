@@ -50,17 +50,19 @@
 .navLink {
   display: block;
   padding: 14px 0;
-  font-size: 1.2rem;
-  color: #f6f6f0;
+  font-size: 1.1rem;
+  color: #d2d49b;
   background: rgba(110, 120, 103, 0.18);
   border-radius: 8px;
   text-decoration: none;
   font-weight: 500;
-  transition: background 0.2s;
+  font-family: inherit;
+  transition: background 0.2s, color 0.2s;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
 }
 .navLink:hover {
   background: rgba(210, 212, 155, 0.18);
-  color: #d2d49b;
+  color: #120404;
 }
 
 .qr {

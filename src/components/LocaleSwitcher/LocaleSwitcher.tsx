@@ -14,24 +14,26 @@ const localeNames: { [key: string]: string } = {
   ru: "Русский",
 };
 
-export function LocaleSwitcher() {
+export function LocaleSwitcher({
+  onLocaleChange,
+}: {
+  onLocaleChange?: () => void;
+}) {
   const [isExpanded, setIsExpanded] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
   const currentLocale = useLocale();
-
   const localePathname = usePathname();
   const pathname = localePathname;
-
   const localesToDisplay = routing.locales.filter(
     (loc) => loc !== currentLocale
   );
 
   const handleLocaleChange = () => {
     setIsExpanded(false);
+    if (onLocaleChange) onLocaleChange();
   };
 
-  // Логіка для закрыцця блока, калі карыстальнік клікае па-за яго межамі
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (
@@ -53,24 +55,15 @@ export function LocaleSwitcher() {
       className={styles.container}
       role="group"
       aria-expanded={isExpanded}
-      /* ЗМЕНЕНА: КЛІК НА ЎВЕСЬ БЛОК */
       onClick={() => setIsExpanded(!isExpanded)}
     >
-      {/* 1. ІКОНКА-ТРЫГЕР */}
-      <span
-        className={styles.iconWrapper}
-        /* ЗМЕНЕНА: Выдалены onClick */
-        role="button"
-      >
+      <span className={styles.iconWrapper} role="button">
         <TfiWorld size={20} className={styles.worldIcon} />
       </span>
-
-      {/* 2. БЛОК З НАЗВАМІ МОВАЎ */}
       <div
         className={`${styles.languageList} ${
           isExpanded ? styles.expanded : ""
         }`}
-        /* ВАЖНА: Спыняем клік на мовах, каб не закрываць спіс адразу пасля выбару Link */
         onClick={(e) => e.stopPropagation()}
       >
         {localesToDisplay.map((locale, index) => (

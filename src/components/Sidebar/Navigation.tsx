@@ -1,7 +1,6 @@
 import Link from "next/link";
 import styles from "./sidebar.module.css";
 
-// List of pages to show in sidebar navigation (excluding video and view)
 const pages = [
   { href: "/", label: "Галоўная" },
   { href: "/about", label: "Пра мяне" },

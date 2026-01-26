@@ -8,7 +8,7 @@ import { useTranslations } from "next-intl";
 import { HiMenu, HiX } from "react-icons/hi";
 import { Link } from "@/i18n/navigation";
 import { Navigation } from "./Navigation";
-import { LocaleSwitcher } from "../LocaleSwitcher/LSforSide";
+import { LocaleSwitcher } from "../LocaleSwitcher/LocaleSwitcher";
 
 export const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -17,7 +17,11 @@ export const Sidebar = () => {
     setIsOpen(!isOpen);
   };
 
+  // Close sidebar on language change
   const t = useTranslations("main");
+  const handleLocaleChange = () => {
+    setIsOpen(false);
+  };
 
   return (
     <>
@@ -30,7 +34,6 @@ export const Sidebar = () => {
         }`}
       >
         <nav className={styles.content}>
-          {/* Only show navigation on mobile */}
           <Navigation />
           <Link
             rel="noopener noreferrer"
@@ -40,7 +43,8 @@ export const Sidebar = () => {
           >
             <Image src={tgQr} alt={t("imgTg")} className={styles.qr} />
           </Link>
-          <LocaleSwitcher />
+          {/* Pass close handler to LocaleSwitcher if possible */}
+          <LocaleSwitcher onLocaleChange={handleLocaleChange} />
         </nav>
       </div>
     </>
