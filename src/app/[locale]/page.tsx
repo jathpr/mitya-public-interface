@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import styles from "./page.module.css";
 import tgQr from "p@/qr.png";
 import enso from "p@/zen.png";

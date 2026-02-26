@@ -3,7 +3,7 @@
 
 import { useRef, useEffect, useState } from "react";
 import styles from "@/app/[locale]/video/video.module.css";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 
 type Props = {
   src: string;
@@ -13,6 +13,8 @@ export function VideoPlayer({ src }: Props) {
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const locale = useLocale();
   const [isLoaded, setIsLoaded] = useState(false);
+
+  const t = useTranslations("videoPage");
 
   useEffect(() => {
     const video = videoRef.current;
@@ -30,8 +32,8 @@ export function VideoPlayer({ src }: Props) {
   }, [src]);
 
   if (!src) {
-    // Выкарыстоўваем стыль .skeleton, які ўжо вызначаны ў CSS
-    return <div className={styles.skeleton}>Error: Video URL not found.</div>;
+    // Use translation for missing src fallback
+    return <div className={styles.skeleton}>{t("noSource")}</div>;
   }
 
   return (
@@ -47,27 +49,27 @@ export function VideoPlayer({ src }: Props) {
     >
       {/* ... (усе <track> элементы застаюцца) ... */}
       <track
-        label="Беларуская"
+        label={t("subs.be")}
         kind="subtitles"
         src="/subtitles/green_by.vtt"
         srcLang="be"
         default={locale === "be"}
       />
       <track
-        label="English"
+        label={t("subs.en")}
         kind="subtitles"
         src="/subtitles/green_en.vtt"
         srcLang="en"
         default={locale === "en"}
       />
       <track
-        label="Русский"
+        label={t("subs.ru")}
         kind="subtitles"
         src="/subtitles/green_ru.vtt"
         srcLang="ru"
         default={locale === "ru"}
       />
-      Ваш браўзер не падтрымлівае тэг video.
+      {t("fallback")}
     </video>
   );
 }

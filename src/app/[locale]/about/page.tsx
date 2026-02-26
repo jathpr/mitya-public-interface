@@ -1,11 +1,11 @@
 import styles from "./page.module.css";
 import mitya from "p@/me.jpg";
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { getTranslations } from "next-intl/server";
 import { HyperLink } from "@/components/Hyperlink";
 
-export default async function about() {
+export default async function About() {
   const t = await getTranslations("about");
   return (
     <div className={styles.page}>

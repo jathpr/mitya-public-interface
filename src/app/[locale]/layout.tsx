@@ -13,6 +13,19 @@ import styles from "./layout.module.css";
 
 import { HomeButton } from "@/components/HomeButton";
 import { MainContentWrapper } from "@/components/MainContentWrapper";
+import I18nClientDebug from "@/components/I18nClientDebug/I18nClientDebug";
+
+import beMessages from "../../../messages/be.json";
+import enMessages from "../../../messages/en.json";
+import ruMessages from "../../../messages/ru.json";
+
+type Messages = Record<string, unknown>;
+
+const messagesMap: Record<string, Messages> = {
+  be: beMessages as Messages,
+  en: enMessages as Messages,
+  ru: ruMessages as Messages,
+};
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -24,7 +37,7 @@ const geistSans = Geist({
 
 type Props = Readonly<{
   children: React.ReactNode;
-  params: Promise<{ locale: string }>;
+  params: { locale: string } | Promise<{ locale: string }>;
 }>;
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -42,13 +55,35 @@ export default async function RootLayout({ children, params }: Props) {
   }
   setRequestLocale(locale);
 
+  // No cookie persistence here: the URL is the single source of truth for locale.
+  // We intentionally avoid writing `NEXT_LOCALE` cookies so locale selection
+  // remains deterministic and always comes from the path segment.
+
+  const messages = messagesMap[locale] || messagesMap[routing.defaultLocale];
+
+  // Debugging: optionally log which messages were selected during server render
+  if (process.env.I18N_DEBUG === "true") {
+    // Provide a small, safe log without dumping full messages
+    console.log(
+      "[i18n] layout - locale:",
+      locale,
+      "messagesKeys:",
+      Object.keys(messages || {})
+    );
+  }
+
   return (
     <html lang={locale}>
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </head>
       <body className={`${geistSans.className}`}>
-        <NextIntlClientProvider>
+        <NextIntlClientProvider locale={locale} messages={messages}>
+          {process.env.NEXT_PUBLIC_I18N_DEBUG === "true" && (
+            // Client component that logs client-side locale and a sample translation
+            // Helps detect hydration / client mismatch
+            <I18nClientDebug />
+          )}
           <div className={styles.locales}>
             <LocaleSwitcher />
           </div>
